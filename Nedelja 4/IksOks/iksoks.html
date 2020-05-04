@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Iks Oks</title>
+        <meta charset="utf-8"/>
+        <style>
+			* {
+				font-family: Verdana;
+			}
+            td {
+                width: 100px;
+                height: 100px;
+                border: 2px solid #8A9696;
+				background-color: #D0F6F7;
+				text-align: center;
+				font-size: 20px;
+				font-weight: bold;
+            }
+			td:hover {
+				cursor: pointer;
+			}
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td id="1"></td>
+                <td id="2"></td>
+                <td id="3"></td>
+            </tr>
+            <tr>
+                <td id="4"></td>
+                <td id="5"></td>
+                <td id="6"></td>
+            </tr>
+            <tr>
+                <td id="7"></td>
+                <td id="8"></td>
+                <td id="9"></td>
+            </tr>
+        </table>
+
+        <script>
+            var polja = document.querySelectorAll('td');
+            var slovoZaUpis = 'X';
+
+			// Resetujemo vrednost svih polja tabele - Nova igra
+			function ocistiTablu() {
+				for (var i=1; i<=9; i++) {
+					document.getElementById(i.toString()).innerHTML = '';
+				}
+			}
+
+			// Proveravamo da li ima pobednika ili je neresen rezultat
+            function proveriKraj(znak) {
+                var dobitneKombinacije = [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9],
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [3, 6 ,9],
+                    [1, 5, 9],
+                    [3, 5, 7]
+                ];
+
+				// Proveravamo da li je neko pobedio - X ili O
+                for(var i = 0; i < dobitneKombinacije.length; i++) {
+                    if(
+                        document.getElementById(dobitneKombinacije[i][0].toString()).innerHTML === znak &&
+                        document.getElementById(dobitneKombinacije[i][1].toString()).innerHTML === znak &&
+                        document.getElementById(dobitneKombinacije[i][2].toString()).innerHTML === znak
+                    ) {
+                        alert('Pobedio je: ' + znak);
+						ocistiTablu();
+						slovoZaUpis = 'X';
+						e.preventDefault();
+                    }
+                }
+
+				// Proveravamo da li je neresen rezultat
+				var brojPopunjenihPolja = 0;
+
+				for(var i=1; i<=9; i++) {
+					if(document.getElementById(i.toString()).innerHTML !== '') {
+						brojPopunjenihPolja += 1;
+					}
+				}
+
+				if(brojPopunjenihPolja == 9) {
+					alert('Nereseno');
+					ocistiTablu();
+				}
+            }
+
+            for (var polje of polja) {
+                polje.addEventListener('click', function(e) {
+					if(e.target.innerHTML === '') {
+						e.target.innerHTML = slovoZaUpis;
+
+						if(slovoZaUpis === 'X') {
+							slovoZaUpis = 'O';
+						} else {
+							slovoZaUpis = 'X';
+						}
+					}
+
+					proveriKraj('X');
+                    proveriKraj('O');
+                });
+            }
+        </script>
+    </body>
+</html>

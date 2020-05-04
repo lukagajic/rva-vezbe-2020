@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Дигитрон</title>
+		<meta charset="utf-8" />
+		<script>
+			function IzvrsiOperaciju()
+			{
+				let operacija = document.getElementById("operacije").value;
+
+				switch(operacija) {
+					case "+":
+						Saberi();
+						break;
+					case "-":
+						Oduzmi();
+						break;
+					case "*":
+						Pomnozi();
+						break;
+					case "/":
+						Podeli();
+						break;
+					case "x^y":
+						Stepenuj();
+						break;
+				}
+			}
+
+			function Saberi()
+			{
+				let broj1 = parseInt(document.getElementById('br1').value);
+				let broj2 = parseInt(document.getElementById('br2').value);
+
+				let rezultat = broj1 + broj2;
+				document.getElementById('rezultat').value = rezultat;
+			}
+
+			function Oduzmi()
+			{
+				let broj1 = parseInt(document.getElementById('br1').value);
+				let broj2 = parseInt(document.getElementById('br2').value);
+
+				let rezultat = broj1 - broj2;
+				document.getElementById('rezultat').value = rezultat;
+			}
+
+			function Pomnozi()
+			{
+				let broj1 = parseInt(document.getElementById('br1').value);
+				let broj2 = parseInt(document.getElementById('br2').value);
+
+				let rezultat = broj1 * broj2;
+				document.getElementById('rezultat').value = rezultat;
+			}
+
+			function Podeli()
+			{
+				let broj1 = parseInt(document.getElementById('br1').value);
+				let broj2 = parseInt(document.getElementById('br2').value);
+
+				let rezultat = broj1 / broj2;
+				document.getElementById('rezultat').value = rezultat.toFixed(3);
+			}
+
+			function Stepenuj()
+			{
+				let broj1 = parseInt(document.getElementById('br1').value);
+				let broj2 = parseInt(document.getElementById('br2').value);
+
+				let rezultat = broj1 ** broj2;
+				document.getElementById('rezultat').value = rezultat;
+			}
+		</script>
+	</head>
+	<body>
+		Први број: <input type="number" id="br1" />
+		<br />
+		Операција:
+		<select id="operacije">
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+			<option>x^y</option>
+		</select>
+		<br />
+		Други број: <input type="number" id="br2" />
+		<br />
+		<button type="button" onClick="IzvrsiOperaciju();">
+			Израчунај
+		</button>
+		<br />
+		Резултат: <input type="number" id="rezultat" />
+	</body>
+</html>
