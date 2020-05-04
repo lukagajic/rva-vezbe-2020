@@ -1,0 +1,36 @@
+* {
+    font-family: Verdana;
+}
+
+body {
+    background-color: #f7f5f0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    color: #FFF;
+    background-color: #706343;
+}
+
+input, select, button {
+    padding: 4px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+ul {
+    list-style: none;
+}
