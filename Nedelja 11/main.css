@@ -1,0 +1,48 @@
+* {
+    font-family: Verdana;
+}
+#logo-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#logo {
+    width: 250px;
+}
+.text-center {
+    text-align: center;
+}
+body {
+    background-color: #f7fcf7;
+}
+table {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+}
+td {
+    background-color: #FFF;
+}
+th {
+    color: #FFF;
+    background-color: #3e4f7d;
+}
+.warning {
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+}
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+}
+ul {
+    list-style: none;
+}
+input, select, button {
+    padding: 4px;
+}
